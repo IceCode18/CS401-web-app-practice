@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: MyString
+  code: MyString
+  expiry: 2019-10-16 06:05:24
+  code_id: 1
+
+two:
+  from: MyString
+  code: MyString
+  expiry: 2019-10-16 06:05:24
+  code_id: 1
