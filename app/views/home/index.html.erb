@@ -1,1 +1,8 @@
-<h1>Welcome to CrunchPass!</h1>
+<% title "Home" %>
+<% if @show_title %>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1>Welcome to the <%= yield(:title) %> Page!</h1>
+      </div>
+    </div>
+<% end %>
