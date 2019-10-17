@@ -1,5 +1,21 @@
 <% title "New Task" %>
-
-<%= form_with(model: @pass, local: false) do |f| %>
-    <%= f.text_field : name %>
+<% if @show_title %>
+    <br>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1><%= yield(:title) %></h1>
+      </div>
+    </div>
+    <br>
 <% end %>
+<div class="group_squeze">
+    <%= bootstrap_form_for(@pass, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+        <%= f.text_field :from %>
+        <%= f.number_field :code_id, label: "Code ID" %>
+        <%= f.date_field :expiry %>
+        <%= f.text_field :code %>
+        <%= f.form_group do %>
+            <%= f.primary :"Create Pass" %>
+        <% end %>
+    <% end %>
+</div>
