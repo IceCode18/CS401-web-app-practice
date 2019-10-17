@@ -33,6 +33,12 @@ class PassesController < ApplicationController
     end
   end
   
+  def destroy
+    @pass = Pass.find params[:id]
+    @pass.destroy
+    redirect_to passes_path, alert: "Guest Pass Deleted."
+  end
+  
   private
   
   def pass_params

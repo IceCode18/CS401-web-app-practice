@@ -44,6 +44,7 @@
     </nav>
     
     <div id="flash-messages" class="row">
+      <br>
       <% flash.each do |name, msg| %>
       <br>
       <div class ="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissable col" role="alert">
