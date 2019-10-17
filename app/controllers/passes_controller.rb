@@ -15,7 +15,12 @@ class PassesController < ApplicationController
       render :new
     end
   end
-
+  
+  def show
+    @pass = Pass.find params[:id]
+  end
+  
+  
   private
   
   def pass_params

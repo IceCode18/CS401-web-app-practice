@@ -1,4 +1,4 @@
-<% title "New Task" %>
+<% title "New Guest Pass" %>
 <% if @show_title %>
     <br>
     <div id="title" class="row">
@@ -19,4 +19,6 @@
             <%= f.primary :"Create Pass" %>
         <% end %>
     <% end %>
+    <br>
+    <%= link_to "Cancel", passes_path, class: "btn btn-secondary" %>
 </div>
