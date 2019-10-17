@@ -1,10 +1,25 @@
 <% title "Passes" %>
-
+<% if @show_title %>
+    <br>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1>Guest<%= yield(:title) %></h1>
+      </div>
+    </div>
+    <br>
+<% end %>
 <% @passes.each do |p| %>
-  <div id="pass_<%= p.id %>" class="pass">
-    <p><strong>From: </strong> <%= p.from %></p>
-    <p><strong>Code: </strong> <%= p.code %></p>
-    <p><strong>Expiry: </strong> <%= p.expiry %></p>
-    <p><strong>ID: </strong> <%= p.code_id %></p>
+
+  <div id="pass_<%= p.id %>" class="card pass" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">From: <%= p.from %></p></h5>
+      <h6 class="card-subtitle mb-2 text-muted">ID: <%= p.code_id %></h6>
+      <h6 class="card-subtitle mb-2 text-muted">Expires: <%= p.expiry %> </h6>
+      <p class="card-text"><strong>Code: </strong><%= p.code %></p>
+      <a href="#" class="card-link">Edit</a>
+      <a href="#" class="card-link">Delete</a>
+    </div>
   </div>
 <% end %>
+
+<%= link_to "New Pass", new_pass_path, class: "btn btn-primary pass-mod" %>
