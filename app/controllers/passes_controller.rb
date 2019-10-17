@@ -1,15 +1,19 @@
 class PassesController < ApplicationController
   before_action :load_pass, except: [:index, :new, :create]
   
-  
+  # GET /pass
+  # GET /pass.json
   def index
    @passes = Pass.all
   end
   
+  # GET /pass/new
   def new
     @pass = Pass.new
   end
   
+  # POST /pass
+  # POST /pass.json
   def create
     @pass = Pass.new pass_params
     if @pass.save
@@ -19,12 +23,17 @@ class PassesController < ApplicationController
     end
   end
   
+  # GET /pass/1
+  # GET /pass/1.json
   def show
   end
   
+  # GET /pass/1/edit
   def edit
   end
   
+  # PATCH/PUT /pass/1
+  # PATCH/PUT /pass/1.json
   def update
     if @pass.update pass_params
       redirect_to @pass, notice: "Guest Pass Updated!"
@@ -33,6 +42,8 @@ class PassesController < ApplicationController
     end
   end
   
+  # DELETE /pass/1
+  # DELETE /pass/1.json
   def destroy
     @pass.destroy
     redirect_to passes_path, alert: "Guest Pass Deleted."

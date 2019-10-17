@@ -1,0 +1,11 @@
+.pass, .pass-mod {
+  margin: 20px; }
+
+.col-form-label::after {
+  content: ":"; }
+
+.group_squeze {
+  width: 600px;
+  margin-left: 30px; }
+
+/*# sourceMappingURL=passes.css.map */
