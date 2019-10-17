@@ -45,8 +45,8 @@
     
     <div id="flash-messages" class="row">
       <% flash.each do |name, msg| %>
+      <br>
       <div class ="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissable col" role="alert">
-        <br>
         <%= msg %>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>

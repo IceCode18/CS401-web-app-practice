@@ -1,0 +1,14 @@
+<div class="group_squeze">
+    <%= bootstrap_form_for(@pass, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+        <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+        <%= f.text_field :from %>
+        <%= f.number_field :code_id, label: "Code ID" %>
+        <%= f.date_field :expiry %>
+        <%= f.text_field :code %>
+        <%= f.form_group do %>
+            <%= f.primary @pass.persisted? ? "Update Guest Pass" : "Submit Guest Pass!" %>
+        <% end %>
+    <% end %>
+    <br>
+    <%= link_to "Cancel", passes_path, class: "btn btn-secondary" %>
+</div>

@@ -20,6 +20,18 @@ class PassesController < ApplicationController
     @pass = Pass.find params[:id]
   end
   
+  def edit
+    @pass = Pass.find params[:id]
+  end
+  
+  def update
+    @pass = Pass.find params[:id]
+    if @pass.update pass_params
+      redirect_to @pass, notice: "Guest Pass Updated!"
+    else
+      render :edit
+    end
+  end
   
   private
   
