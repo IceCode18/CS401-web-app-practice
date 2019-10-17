@@ -5,7 +5,6 @@ class CreatePasses < ActiveRecord::Migration[6.0]
       t.string :code
       t.datetime :expiry
       t.integer :code_id
-
       t.timestamps
     end
   end
