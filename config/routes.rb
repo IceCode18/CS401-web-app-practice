@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'passes/index'
+  resources :passes
   root to: 'home#index'
   get "claim" => 'home#claim'
   get "feedback" => 'home#feedback'

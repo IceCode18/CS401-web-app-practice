@@ -20,8 +20,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <%= nav_link "Claim", "/claim" %>
-          <%= nav_link "Feedback", "/feedback" %>
+          <!--#<%= nav_link "Claim", "/claim" %>-->
+          <%= nav_link "Claim", claim_path %>
+          <!--<%= nav_link "Feedback", "/feedback" %>-->
+          <%= nav_link "Feedback", feedback_path %>
+          <%= nav_link "Passes", passes_path %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Recreation
