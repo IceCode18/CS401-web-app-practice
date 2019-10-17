@@ -42,27 +42,32 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </nav>
-    <br>
+    
     <div id="flash-messages" class="row">
       <% flash.each do |name, msg| %>
       <div class ="alert alert-<%= name == 'notice' ? 'primary' : 'danger' %> alert-dismissable col" role="alert">
+        <br>
         <%= msg %>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <br>
       <% end %>
     </div>
-    <br>
+    
     
     <%= yield %>
-  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer class="navbar fixed-bottom footer">
+      <div class="container">
+        <span class="text-muted copyr"> &copy;Jaykant Tiano</span>
+      </div>
+    </footer>
   </body>
 </html>
-<!-- Footer -->
-<!-- Footer -->
-<footer class="navbar fixed-bottom footer">
-  <div class="container">
-    <span class="text-muted copyr"> &copy;Jaykant Tiano</span>
-  </div>
-</footer>
