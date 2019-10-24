@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'coupons/index'
   resources :passes
   root to: 'home#index'
   get "claim" => 'home#claim'
