@@ -2,24 +2,7 @@
 
 <%= link_to "New Coupon", new_pass_coupon_path(@pass), class: "btn btn-info"  %>
 <hr>
-<div class="grid-container">
-    <% @coupons.each do |coupon| %>
-        <div class="grid-item">
-            <div id="coupon_<%= coupon.id %>" class="coupon card pass">
-                <div class="coupon-main">
-                    <h2 class= "center"><%= coupon.code %></h2>
-                    <p class="center small">Code</p>
-                </div>
-                <div class="coupon-info">
-                    <span class="small f-left"><strong>Expires: </strong> <%= coupon.code_expiry %></span>
-                    <span class="small f-right"><strong>Claimed by: </strong> <%= coupon.claimer %></span>
-                </div>
-                <div class="coupon-note">
-                    <p><%= coupon.note %></p>
-                </div>
-                <p class="center small">Note</p>
-            </div>
-        </div>
-    <% end %>
-</div>
 
+<div class="grid-container">
+<%= render @coupons %>
+</div>

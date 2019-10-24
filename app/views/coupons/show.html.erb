@@ -1,0 +1,8 @@
+<% title "Coupon Info" %>
+
+<%= render @coupon %>
+
+
+<%= link_to "Edit", edit_pass_coupon_path(@pass, @coupon) %>
+<%= link_to "Delete", pass_coupon_path(@pass, @coupon), method: :delete, data: {confirm: "Are you sure you want to delete this?" },  class: "btn btn-info" %>
+<%= link_to "Show All Coupons", pass_notes_path(@pass), class: "btn btn-info"  %>

@@ -38,7 +38,10 @@ body{
 }
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
+  margin: auto;
+  width: 85%;
+  text-align: center;
 }
 .grid-item {
   text-align: center;
@@ -72,6 +75,7 @@ body{
     width: 450px;
     padding: 0;
     border: 5px dashed #eee !important;
+    display: block
 }
 .coupon-info, .coupon-main, .coupon-note{
     padding: 20px;
