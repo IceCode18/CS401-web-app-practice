@@ -1,2 +1,13 @@
-<h1>Coupons#index</h1>
-<p>Find me in app/views/coupons/index.html.erb</p>
+<% title @pass.from %>
+
+<% @coupons.each do |coupon| %>
+    <div id="coupon_<%= coupon.id %>" class="coupon card pass">
+        <p><strong>Code: </strong> <%= coupon.code %></p>
+        <p><strong>Expires: </strong> <%= coupon.code_expiry %></p>
+        <hr>
+        <p><strong>Claimed by: </strong> <%= coupon.claimer %></p>
+        <p><strong>Note: </strong> <%= coupon.note %></p>
+    </div>
+<% end %>
+
+<%= link_to "New Coupon", new_pass_coupon_path(@pass), class: "btn btn-info"  %>
