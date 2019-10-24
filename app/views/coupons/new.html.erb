@@ -1,15 +1,13 @@
 <% title "New Coupon" %>
+<% if @show_title %>
+    <br>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1><%= yield(:title) %></h1>
+      </div>
+    </div>
+    <br>
+<% end %>
+<%= render 'form' %>
 
-<div class="group_squeze">
-    <%= bootstrap_form_for([@pass,@coupon], local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
-        <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-        <%= f.text_field :code%>
-        <%= f.date_field :code_expiry %>
-        <%= f.text_field :claimer, label: "Claimed by" %>
-        <%= f.text_area :note %>
-        <%= f.form_group do %>
-            <!--<%= f.primary @pass.persisted? ? "Update Guest Pass" : "Submit Guest Pass!" %>-->
-            <%= f.primary "Save Coupon" %>
-        <% end %>
-    <% end %>
-</div>
+<%= link_to "Cancel", pass_coupons_path(@pass), class: "btn btn-info"   %>

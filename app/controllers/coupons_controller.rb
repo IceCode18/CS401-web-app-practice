@@ -1,5 +1,6 @@
 class CouponsController < ApplicationController
   before_action :load_pass
+  before_action :load_coupon, except: [:index, :new, :create]
   
   def index
     @coupons = @pass.coupons
@@ -19,14 +20,32 @@ class CouponsController < ApplicationController
   end
   
   def show
-    @coupon = @pass.coupons.find params[:id]
   end  
-    
+  
+  def edit
+  end
+  
+  def update
+    if @coupon.update coupon_params
+      redirect_to [@pass,@coupon], notice: "Coupon Updated!"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @coupon.destroy
+    redirect_to pass_coupons_path(@pass), alert: "Coupon Deleted."
+  end
   
   private
   
   def load_pass
     @pass = Pass.find params[:pass_id]
+  end
+  
+  def load_coupon
+     @coupon = @pass.coupons.find params[:id]
   end
   
   def coupon_params
