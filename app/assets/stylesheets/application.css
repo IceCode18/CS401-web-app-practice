@@ -106,7 +106,9 @@ a:hover{
 .coupon h2{
     margin: 0;
 }
-
+.pid{
+    transform: rotate(0);
+}
 
 
 /***Misc*****/

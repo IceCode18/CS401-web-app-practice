@@ -1,8 +1,7 @@
 <div id="pass_<%= pass.id %>" class="card pass" style="width: 18rem;">
     <div class="card-body">
       <div class="pid">
-        <h5 class="card-subtitle mb-2 text-muted">Owner: <span class="link-title"><%= link_to_unless_current pass.from, pass %></span></h5>
-      </div>
+        <h5 class="card-subtitle mb-2 text-muted">Owner: <span class="link-title"><%= link_to_unless_current pass.from, pass, class: "stretched-link" %></span></h5>
       <hr>
       <h6 class="card-title">User ID: <%= pass.code_id %></p></h6>
       <!--<h6 class="card-subtitle mb-2 text-muted">Expires: <%= pass.expiry %> </h6>-->
@@ -10,6 +9,7 @@
       <p class="card-text"><strong>Code: </strong><%= pass.code %></p>
       <br>
       <hr>
+      </div>
       <span class="card-link"><%= link_to "Edit", edit_pass_path(pass) %></span>
 
       <span class="card-link"><%= link_to "Coupons", pass_coupons_path(pass) %></span>
