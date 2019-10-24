@@ -2,14 +2,14 @@
 
 one:
   code: MyString
-  code_expiry: MyString
+  code_expiry: 2019-10-24 05:26:35
   claimer: MyString
   note: MyText
-  coupon_id: 1
+  code_id: 1
 
 two:
   code: MyString
-  code_expiry: MyString
+  code_expiry: 2019-10-24 05:26:35
   claimer: MyString
   note: MyText
-  coupon_id: 1
+  code_id: 1
