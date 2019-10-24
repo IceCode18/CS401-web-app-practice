@@ -10,7 +10,7 @@
 <% end %>
 
 <%= render @pass %>
-
+<!--<%= link_to "Coupons", pass_coupons_path(@pass) %>-->
 <!--<%= link_to "Edit", edit_pass_path(@pass) %>-->
-<!--<%= link_to "Delete", @pass, method: :delete, data: {confirm: "Are you sure you want to delete this?" } %>-->
+<%= link_to "Delete", @pass, method: :delete, data: {confirm: "Are you sure you want to delete this?" },  class: "btn btn-info" %>
 <%= link_to "Show All Passes", passes_path, class: "btn btn-info"  %>

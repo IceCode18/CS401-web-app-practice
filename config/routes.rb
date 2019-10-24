@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'coupons/index'
-  resources :passes
+  # get 'coupons/index'
+  resources :passes do
+    resources :coupons
+  end
   root to: 'home#index'
   get "claim" => 'home#claim'
   get "feedback" => 'home#feedback'
