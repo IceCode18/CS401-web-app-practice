@@ -1,6 +1,8 @@
 <% title "Pass" %>
+<%= link_to "", passes_path, class: "btn btn-secondary f-right lnk-back"  %>
+
 <% if @show_title %>
-    <br>
+  <br>
     <div id="title" class="row">
       <div class = "col">
         <h1>Guest <%= yield(:title) %></h1>
@@ -9,8 +11,16 @@
     <br>
 <% end %>
 
-<%= render @pass %>
-<!--<%= link_to "Coupons", pass_coupons_path(@pass) %>-->
-<!--<%= link_to "Edit", edit_pass_path(@pass) %>-->
-<%= link_to "Delete", @pass, method: :delete, data: {confirm: "Are you sure you want to delete this?" },  class: "btn btn-info" %>
-<%= link_to "Show All Passes", passes_path, class: "btn btn-info"  %>
+
+
+<hr>
+<br>
+
+<div class="d-flex wrap2">
+  <%= render @pass %>
+  
+  <!--<%= link_to "Coupons", pass_coupons_path(@pass) %>-->
+  <!--<%= link_to "Edit", edit_pass_path(@pass) %>-->
+  <br>
+</div>
+<%= link_to "Delete", @pass, method: :delete, data: {confirm: "Are you sure you want to delete this?" },  class: "btn btn-secondary" %>

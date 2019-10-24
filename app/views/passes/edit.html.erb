@@ -1,5 +1,5 @@
 <% title "Edit Task" %>
-<br>
+<%= link_to "", passes_path, class: "btn btn-secondary f-right lnk-back" %>
 <% if @show_title %>
     <br>
     <div id="title" class="row">
@@ -9,5 +9,9 @@
     </div>
     <br>
 <% end %>
-<br>
-<%= render 'form' %>
+
+<hr>
+
+<div class="group_squeze">
+  <%= render 'form' %>
+</div>

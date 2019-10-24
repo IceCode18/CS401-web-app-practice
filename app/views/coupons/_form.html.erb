@@ -6,7 +6,7 @@
         <%= f.text_field :claimer, label: "Claimed by" %>
         <%= f.text_area :note %>
         <%= f.form_group do %>
-           <%= f.primary @coupon.persisted? ? "Update Coupon" : "Submit Coupon" %>
+           <%= f.primary @coupon.persisted? ? "Update Coupon" : "Submit Coupon",  class: "btn btn-info" %>
         <% end %>
     <% end %>
 </div>

@@ -1,8 +1,20 @@
 <% title @pass.from %>
 
-<%= link_to "New Coupon", new_pass_coupon_path(@pass), class: "btn btn-info"  %>
+<%= link_to "", passes_path, class: "btn btn-secondary f-right lnk-back"  %>
+<%= link_to "", new_pass_coupon_path(@pass), class: "btn btn-info f-right lnk"  %>
+
+
+<% if @show_title %>
+    <br>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1><%= yield(:title) %>'s Coupons</h1>
+      </div>
+    </div>
+    <br>
+<% end %>
 <hr>
 
-<div class="grid-container">
+<div class="grid-container d-flex">
 <%= render @coupons %>
 </div>

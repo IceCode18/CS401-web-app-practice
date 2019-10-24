@@ -1,6 +1,17 @@
 <% title "Edit Coupon" %>
+<%= link_to "", [@pass,@coupon], class: "btn btn-secondary f-right lnk-back"   %>
 
+<% if @show_title %>
+    <br>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1><%= yield(:title) %></h1>
+      </div>
+    </div>
+    <br>
+<% end %>
 
-<%= link_to "Cancel", [@pass,@coupon], class: "btn btn-info"   %>
 <hr>
+
 <%= render 'form' %>
+
