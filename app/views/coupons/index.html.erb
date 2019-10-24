@@ -1,13 +1,25 @@
 <% title @pass.from %>
 
-<% @coupons.each do |coupon| %>
-    <div id="coupon_<%= coupon.id %>" class="coupon card pass">
-        <p><strong>Code: </strong> <%= coupon.code %></p>
-        <p><strong>Expires: </strong> <%= coupon.code_expiry %></p>
-        <hr>
-        <p><strong>Claimed by: </strong> <%= coupon.claimer %></p>
-        <p><strong>Note: </strong> <%= coupon.note %></p>
-    </div>
-<% end %>
-
 <%= link_to "New Coupon", new_pass_coupon_path(@pass), class: "btn btn-info"  %>
+<hr>
+<div class="grid-container">
+    <% @coupons.each do |coupon| %>
+        <div class="grid-item">
+            <div id="coupon_<%= coupon.id %>" class="coupon card pass">
+                <div class="coupon-main">
+                    <h2 class= "center"><%= coupon.code %></h2>
+                    <p class="center small">Code</p>
+                </div>
+                <div class="coupon-info">
+                    <span class="small f-left"><strong>Expires: </strong> <%= coupon.code_expiry %></span>
+                    <span class="small f-right"><strong>Claimed by: </strong> <%= coupon.claimer %></span>
+                </div>
+                <div class="coupon-note">
+                    <p><%= coupon.note %></p>
+                </div>
+                <p class="center small">Note</p>
+            </div>
+        </div>
+    <% end %>
+</div>
+
