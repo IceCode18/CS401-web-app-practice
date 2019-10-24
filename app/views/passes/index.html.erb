@@ -1,3 +1,5 @@
+<%= link_to "New Pass", new_pass_path, class: "btn btn-info" %>
+<hr>
 <% title "Passes" %>
 <% if @show_title %>
     <br>
@@ -11,4 +13,3 @@
 
 <%= render @passes %>
 
-<%= link_to "New Pass", new_pass_path, class: "btn btn-primary pass-mod" %>
