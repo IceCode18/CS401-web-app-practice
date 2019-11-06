@@ -4,7 +4,11 @@ class PassesController < ApplicationController
   # GET /pass
   # GET /pass.json
   def index
-   @passes = Pass.all
+    unless current_user
+      redirect_to root_path, alert: "Invalid Request"
+    else
+      @passes = Pass.all
+    end
   end
   
   # GET /pass/new

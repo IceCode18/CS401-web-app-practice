@@ -1,12 +1,14 @@
+<% title "Sign Up" %>
+
 <div class="group_squeze">
-    <%= bootstrap_form_for([@pass,@coupon], local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+    <%= bootstrap_form_for(@user, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
         <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-        <%= f.text_field :code%>
-        <%= f.date_field :code_expiry %>
-        <%= f.text_field :claimer, label: "Claimed by" %>
-        <%= f.text_area :note %>
+        <%= f.text_field :name %>
+        <%= f.email_field :email %>
+        <%= f.password_field :password %>
+        <%= f.password_field :password_confirmation, label: "Confirm Password" %>
         <%= f.form_group do %>
-           <%= f.primary @coupon.persisted? ? "Update Coupon" : "Submit Coupon",  class: "btn btn-info" %>
+           <%= f.primary "Sign Up",  class: "btn btn-info" %>
         <% end %>
     <% end %>
 </div>

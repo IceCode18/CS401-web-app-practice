@@ -1,0 +1,21 @@
+<% title @current_user.name %>
+
+
+<% if @show_title %>
+  <br>
+    <div id="title" class="row">
+      <div class = "col">
+        <h1>Welcome <%= yield(:title) %>!</h1>
+      </div>
+    </div>
+    <br>
+<% end %>
+
+
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item">User Name: <%=  @current_user.name %></li>
+  <li class="list-group-item">User Email: <%=  @current_user.email %></li>
+</ul
