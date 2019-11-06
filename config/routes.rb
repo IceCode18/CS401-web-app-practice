@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   #get 'users/index'
   # get 'coupons/index'
   
+  get "signup" => 'users#new'
   resources :users
   resources :passes do
     resources :coupons
