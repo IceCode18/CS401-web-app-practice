@@ -1,14 +1,11 @@
 class PassesController < ApplicationController
+  before_action :authenticate
   before_action :load_pass, except: [:index, :new, :create]
   
   # GET /pass
   # GET /pass.json
   def index
-    unless current_user
-      redirect_to root_path, alert: "Invalid Request"
-    else
       @passes = Pass.all
-    end
   end
   
   # GET /pass/new

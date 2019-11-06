@@ -1,4 +1,5 @@
 class CouponsController < ApplicationController
+  before_action :authenticate
   before_action :load_pass
   before_action :load_coupon, except: [:index, :new, :create]
   
