@@ -42,7 +42,7 @@ class CouponsController < ApplicationController
   private
   
   def load_pass
-    @pass = Pass.find params[:pass_id]
+    @pass = current_user.passes.find params[:pass_id]
   end
   
   def load_coupon

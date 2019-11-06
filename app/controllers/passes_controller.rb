@@ -5,7 +5,7 @@ class PassesController < ApplicationController
   # GET /pass
   # GET /pass.json
   def index
-      @passes = Pass.all
+      @passes = current_user.passes
   end
   
   # GET /pass/new
@@ -17,6 +17,7 @@ class PassesController < ApplicationController
   # POST /pass.json
   def create
     @pass = Pass.new pass_params
+    @pass.user = current_user
     if @pass.save
       redirect_to passes_path, notice: "Guest Pass Submitted!"
     else
@@ -53,7 +54,7 @@ class PassesController < ApplicationController
   private
   
   def load_pass
-    @pass = Pass.find params[:id]
+    @pass = current_user.passes.find params[:id]
   end
   
   def pass_params
