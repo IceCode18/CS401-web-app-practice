@@ -21,10 +21,14 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <!--#<%= nav_link "Claim", "/claim" %>-->
-          <%= nav_link "Claim", claim_path %>
+          <%= nav_link "Home", root_path %>
+          <% if current_user %>
+            <%= nav_link "Claim", claim_path %>
+            <%= nav_link "Passes", passes_path %>
+          <% end %>
           <!--<%= nav_link "Feedback", "/feedback" %>-->
           <%= nav_link "Feedback", feedback_path %>
-          <%= nav_link "Passes", passes_path %>
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Recreation
@@ -44,7 +48,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <ul class="navbar-nav pull-right mr-auto">
-        <% if session[:user_id] != nil %>
+        <% if current_user %>
           <%= nav_link "Logout", logout_path %>
         <% else %>
           <%= nav_link "Sign Up", signup_path %>
