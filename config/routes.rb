@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   # get 'coupons/index'
   resources :passes do
     resources :coupons
