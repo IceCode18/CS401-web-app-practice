@@ -1,5 +1,5 @@
-<% title "Sign Up" %>
-
+<% title "Edit User" %>
+<%= link_to "", root_path, class: "btn btn-secondary f-right lnk-back" %>
 <% if @show_title %>
     <br>
     <div id="title" class="row">
@@ -10,4 +10,8 @@
     <br>
 <% end %>
 
-<%= render 'form' %>
+<hr>
+
+<div class="group_squeze">
+  <%= render 'form' %>
+</div>
