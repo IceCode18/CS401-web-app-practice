@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  #get 'sessions/new'
   #get 'users/index'
   # get 'coupons/index'
   
   get "signup" => 'users#new'
+  get "login" => 'sessions#new'
+  get "logout" => 'sessions#destroy'
+  
   resources :users
+  resources :sessions
   resources :passes do
     resources :coupons
   end

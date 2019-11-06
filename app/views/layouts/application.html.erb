@@ -44,8 +44,12 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <ul class="navbar-nav pull-right mr-auto">
+        <% if session[:user_id] != nil %>
+          <%= nav_link "Logout", logout_path %>
+        <% else %>
           <%= nav_link "Sign Up", signup_path %>
-          <%= nav_link "Login", "/login" %>
+          <%= nav_link "Login", login_path %>
+        <% end %>
       </ul>
       
       
