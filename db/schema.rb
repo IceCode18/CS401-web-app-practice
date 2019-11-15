@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_045038) do
+ActiveRecord::Schema.define(version: 2019_11_15_051125) do
 
   create_table "coupons", force: :cascade do |t|
     t.string "code"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_045038) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
   end
 
 end
