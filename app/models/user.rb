@@ -6,4 +6,11 @@ class User < ApplicationRecord
     validates :name, presence: true
     validates :password, presence: true
     validates :password_confirmation, presence: true
+    
+    def self.new_from_hash(user_hash)
+        user = User.new user_hash
+        user.password_digest = 0
+        user
+    end
+    
 end
