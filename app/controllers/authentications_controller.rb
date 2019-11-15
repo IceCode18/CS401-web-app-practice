@@ -1,7 +1,16 @@
 class AuthenticationsController < ApplicationController
     
     def create
-        render json: auth_hash
+        #render json: auth_hash
+        #return
+        user = User.where(provider: user_hash[:provider], uid: user_hash[:uid]).first
+        if user
+            login(user)
+            redirect_to root_path, notice: "You are logged in."
+        else
+            user = User.new_from_hash user_hash
+            user.save!
+        end
     end
     
     private
