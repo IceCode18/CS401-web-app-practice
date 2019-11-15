@@ -9,7 +9,12 @@ class AuthenticationsController < ApplicationController
             redirect_to root_path, notice: "You are logged in."
         else
             user = User.new_from_hash user_hash
-            user.save!
+            if user.save
+                redirect_to root_path, notice: "Account Created."
+            else
+                session[:user_hash] = user_hash
+                redirect_to signup_path, notice: "Please provide the missing information"
+            end
         end
     end
     
