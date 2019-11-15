@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
     
     def authenticate
         unless current_user
-            redirect_to root_path, alert: "Invalid Request"
+            session[:protected_page] = request.url
+            redirect_to login_path, alert: "You need to login to view this page."
         end
     end
     
