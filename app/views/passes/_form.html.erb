@@ -1,9 +1,9 @@
 <%= bootstrap_form_for(@pass, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
     <%= f.alert_message "Please fix the errors below.", error_summary: false %>
-    <%= f.text_field :from, label: "Owner"  %>
-    <%= f.number_field :code_id, label: "User ID" %>
-    <%= f.date_field :expiry %>
-    <%= f.text_field :code %>
+    <%= f.text_field :from, label: "Website"  %>
+    <%= f.number_field :code_id, label: "Number of Coupons" %>
+    <!--<%= f.date_field :expiry %>-->
+    <%= f.text_field :code, label: "Description"  %>
     <%= f.form_group do %>
         <%= f.primary @pass.persisted? ? "Update Guest Pass" : "Submit Guest Pass!", class: "btn btn-info" %>
     <% end %>
