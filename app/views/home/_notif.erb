@@ -1,0 +1,10 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Notifications
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <% check_expired_coupons.each do |e| %>
+          <a class="dropdown-item" href="https://www.crunchyroll.com"><%= e %></a>
+       <% end %>
+  </div>
+</li>

@@ -12,22 +12,30 @@ class ApplicationController < ActionController::Base
     
     def login(user)
         session[:user_id] = user.id
-        #check user passes if any of them are expired
-        user.passes.each do |p|
-            p.coupons.each do |c|
-              puts "The current array item is: #{c.code_expiry}"
-            end
-        end
+        check_expired_coupons
     end
     
     def logout
         session[:user_id] = nil
     end
     
+    def check_expired_coupons
+        #check user passes if any of them are expired
+        exp = []
+        current_user.passes.each do |p|
+            p.coupons.each do |c|
+                exp.push("Your code #{c.code} for #{p.from} has expired.")
+                puts "The current array item is: #{c.code_expiry}"
+            end
+        end
+        exp
+    end
+    
     def current_user
         @current_user ||= User.find session[:user_id] if session[:user_id]
     end
     helper_method :current_user
+    helper_method :check_expired_coupons
     
     
 end
