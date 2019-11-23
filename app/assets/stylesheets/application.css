@@ -57,6 +57,22 @@ body{
 }
 
 
+/**Navigation Pane*****/
+#search-bar{
+    text-align: center;
+    width: 100%;
+}
+#search-bar form{
+    min-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+#search-bar input{
+    min-width: 50%;
+}
+
+
+
 /***Pass Block*****/
 .pass{
     box-shadow: 2px 2px 5px #555 !important;
