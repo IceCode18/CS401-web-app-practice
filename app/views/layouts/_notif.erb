@@ -4,7 +4,7 @@
   </a>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
       <% check_expired_coupons.each do |e| %>
-          <a class="dropdown-item" href="https://www.crunchyroll.com"><%= e %></a>
+          <a class="dropdown-item" href="/passes/<%= e.pass.code_id %>/coupons/<%= e.id  %>">Your code <%= e.code%> for <%=e.pass.from %> has expired.</a>
        <% end %>
   </div>
 </li>

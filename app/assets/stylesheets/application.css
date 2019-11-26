@@ -60,17 +60,19 @@ body{
 /**Navigation Pane*****/
 #search-bar{
     text-align: center;
-    width: 100%;
+    min-width: 50%;
 }
 #search-bar form{
-    min-width: 80%;
+    min-width: 100%;
     margin: auto;
     text-align: center;
 }
 #search-bar input{
-    min-width: 50%;
+    min-width: 40%;
 }
-
+.sign{
+    min-width: 150px;
+}
 
 
 /***Pass Block*****/

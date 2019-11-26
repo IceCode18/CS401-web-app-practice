@@ -18,13 +18,19 @@ class ApplicationController < ActionController::Base
     def logout
         session[:user_id] = nil
     end
-    
+    #Notifications is this really needed?
+    #code
+    #codeID
+    #passID
+    #read
+    #type
+    #interactingUser
     def check_expired_coupons
         #check user passes if any of them are expired
         exp = []
         current_user.passes.each do |p|
             p.coupons.each do |c|
-                exp.push("Your code #{c.code} for #{p.from} has expired.")
+                exp.push(c)
                 puts "The current array item is: #{c.code_expiry}"
             end
         end
