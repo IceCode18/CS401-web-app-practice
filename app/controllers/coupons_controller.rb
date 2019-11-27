@@ -28,6 +28,8 @@ class CouponsController < ApplicationController
   
   def update
     if @coupon.update coupon_params
+      @coupon.isChanged = nil
+      @coupon.save
       redirect_to [@pass,@coupon], notice: "Coupon Updated!"
     else
       render :edit
@@ -47,10 +49,15 @@ class CouponsController < ApplicationController
   
   def load_coupon
      @coupon = @pass.coupons.find params[:id]
+      if(@coupon.isChanged)
+        @coupon.isChanged = false
+        @coupon.save
+      end
   end
   
   def coupon_params
     params.require(:coupon).permit(:code, :code_expiry, :note, :claimer)
   end
+  
   
 end

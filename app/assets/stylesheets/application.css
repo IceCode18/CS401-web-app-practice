@@ -89,7 +89,14 @@ body{
 .green.dropdown-toggle::after{
     color: rgb(10,220,10);
 }
-
+.dropdown-item.gray{
+    background: #f8f7fa;
+    color: #555;
+    margin-bottom: 2px;
+}
+.dropdown-item.gray:hover{
+    background: #e7e6e9;
+}
 /***Pass Block*****/
 .pass{
     box-shadow: 2px 2px 5px #555 !important;

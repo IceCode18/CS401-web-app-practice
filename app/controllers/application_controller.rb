@@ -24,19 +24,23 @@ class ApplicationController < ActionController::Base
         current_user.passes.each do |p|
             p.coupons.each do |c|
                 if(c.claimer != "")
+                    puts "The current array item is: #{c.isChanged}"
                     if (c.isChanged == nil)
                         c.isChanged = true
                     end
                     c.changeType = "claimed"
+                    c.save
                     exp.push(c)
-                    puts "The current array item is: #{c.changeType}"
+                    puts "The current array item is: #{c.isChanged}"
                 elsif (c.code_expiry < Date.today)
+                    puts "The current array item is: #{c.isChanged}"
                     if (c.isChanged == nil)
                         c.isChanged = true
                     end
                     c.changeType = "expired"
+                    c.save
                     exp.push(c)
-                    puts "The current array item is: #{c.changeType}"
+                    puts "The current array item is: #{c.isChanged}"
                 end
                 
             end
@@ -49,10 +53,11 @@ class ApplicationController < ActionController::Base
         newNotif = 0
         notif = check_coupon_updates
         notif.each do |c|
-            if(c.isChanged)
+            if(c.isChanged==true)
                 newNotif += 1
             end
         end
+        puts "The count of notif is: #{newNotif}"
         newNotif
     end
     
@@ -65,15 +70,6 @@ class ApplicationController < ActionController::Base
         return 0
     end
     
-    #Resets number of new notifications
-    def resetNotifCount
-        notif = check_coupon_updates
-        notif.each do |c|
-            if(c.isChanged)
-                c.isChanged = false
-            end
-        end
-    end
     
     def current_user
         @current_user ||= User.find session[:user_id] if session[:user_id]
@@ -82,7 +78,6 @@ class ApplicationController < ActionController::Base
     helper_method :check_coupon_updates
     helper_method :check_new_notif
     helper_method :quick_check_notif
-    helper_method :resetNotifCount
     
     
 end

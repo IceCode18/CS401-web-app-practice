@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get "signup" => 'users#new'
   get "login" => 'sessions#new'
   get "logout" => 'sessions#destroy'
-  get 'resetNotifCount' => 'application#resetNotifCount'
   
   get '/auth/:provider/callback', to: 'authentications#create'
   
