@@ -18,18 +18,22 @@ class ApplicationController < ActionController::Base
         session[:user_id] = nil
     end
     
+    #check user passes if any of them are expired or have been claimed
     def check_coupon_updates
-        #check user passes if any of them are expired
         exp = []
         current_user.passes.each do |p|
             p.coupons.each do |c|
                 if(c.claimer != "")
-                    c.isChanged = true
+                    if (c.isChanged == nil)
+                        c.isChanged = true
+                    end
                     c.changeType = "claimed"
                     exp.push(c)
                     puts "The current array item is: #{c.changeType}"
                 elsif (c.code_expiry < Date.today)
-                    c.isChanged = true
+                    if (c.isChanged == nil)
+                        c.isChanged = true
+                    end
                     c.changeType = "expired"
                     exp.push(c)
                     puts "The current array item is: #{c.changeType}"
@@ -40,25 +44,35 @@ class ApplicationController < ActionController::Base
         exp
     end
     
+    #Checks if there new notifications
     def check_new_notif
         newNotif = 0
-        expired = check_coupon_updates
-            expired.each do |c|
-                if(c.isChanged)
-                    newNotif += 1
-                end
+        notif = check_coupon_updates
+        notif.each do |c|
+            if(c.isChanged)
+                newNotif += 1
             end
+        end
         newNotif
     end
     
-    def quick_check_new_notif
-        expired = check_coupon_updates
-        expired.each do |c|
-            if(c.isChanged)
-                return 1
-            end
+    #Checks if there are notifications
+    def quick_check_notif
+        changedCoupons = check_coupon_updates
+        if changedCoupons.length > 0
+            return 1
         end
         return 0
+    end
+    
+    #Resets number of new notifications
+    def resetNotifCount
+        notif = check_coupon_updates
+        notif.each do |c|
+            if(c.isChanged)
+                c.isChanged = false
+            end
+        end
     end
     
     def current_user
@@ -67,7 +81,8 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
     helper_method :check_coupon_updates
     helper_method :check_new_notif
-    helper_method :quick_check_new_notif
+    helper_method :quick_check_notif
+    helper_method :resetNotifCount
     
     
 end

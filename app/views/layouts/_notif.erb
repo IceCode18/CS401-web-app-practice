@@ -1,12 +1,14 @@
 <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle notification <% if quick_check_new_notif != 0 %>green<%end%>" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  
+  <a class="nav-link dropdown-toggle notification <% if check_new_notif != 0 %>green<%end%>" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <% if check_new_notif != 0 %>
       <span class="badge"><%= check_new_notif %></span>
     <% end %>
     <span id="notif-badge">Notifications</span>
   </a>
+  
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-      <% if quick_check_new_notif != 0 %>
+      <% if quick_check_notif != 0 %>
         <% check_coupon_updates.each do |e| %>
             <a class="dropdown-item" href="/passes/<%= e.pass.code_id %>/coupons/<%= e.id  %>">Your code <%= e.code%> for <%=e.pass.from %> has 
             <% if e.changeType == "expired" %>
@@ -14,7 +16,8 @@
             <% else %>
               been claimed by
               <%=e.claimer %>
-            <% end %>.
+            <% end %>
+            <!--<%= button_to "Mark as Read", :method=> "resetNotifCount" %>-->
             </a>
          <% end %>
       <% else %>
