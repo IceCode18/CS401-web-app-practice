@@ -24,23 +24,19 @@ class ApplicationController < ActionController::Base
         current_user.passes.each do |p|
             p.coupons.each do |c|
                 if(c.claimer != "")
-                    puts "The current array item is: #{c.isChanged}"
                     if (c.isChanged == nil)
                         c.isChanged = true
                     end
                     c.changeType = "claimed"
                     c.save
                     exp.push(c)
-                    puts "The current array item is: #{c.isChanged}"
                 elsif (c.code_expiry < Date.today)
-                    puts "The current array item is: #{c.isChanged}"
                     if (c.isChanged == nil)
                         c.isChanged = true
                     end
                     c.changeType = "expired"
                     c.save
                     exp.push(c)
-                    puts "The current array item is: #{c.isChanged}"
                 end
                 
             end
@@ -57,7 +53,6 @@ class ApplicationController < ActionController::Base
                 newNotif += 1
             end
         end
-        puts "The count of notif is: #{newNotif}"
         newNotif
     end
     

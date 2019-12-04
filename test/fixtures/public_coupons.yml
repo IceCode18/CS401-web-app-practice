@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pub_id: MyString
+  from: MyString
+  site: MyString
+  code: MyString
+  expiry: 2019-12-04 23:31:46
+  claimer: MyString
+  note: MyString
+
+two:
+  pub_id: MyString
+  from: MyString
+  site: MyString
+  code: MyString
+  expiry: 2019-12-04 23:31:46
+  claimer: MyString
+  note: MyString
