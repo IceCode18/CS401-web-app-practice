@@ -1,0 +1,2 @@
+module PublicCouponsHelper
+end
