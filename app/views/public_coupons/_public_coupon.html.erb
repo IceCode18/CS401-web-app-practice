@@ -4,7 +4,7 @@
             <h5><%= public_coupon.site %></h5>
         </div>
         <div class="coupon-main">
-            <% if public_coupon.claimer == nil %>
+            <% if public_coupon.claimer.length > 0 %>
                 <h2 class= "center"><%= public_coupon.code %></h2>
                 <p class="center small">Code</p>
             <% else %>
@@ -13,7 +13,11 @@
         </div>
         <div class="coupon-info">
             <span class="small f-left"><strong>Expires: </strong> <%= public_coupon.expiry %></span>
-            <span class="small f-right"><strong>Claimed by: </strong> <%= public_coupon.claimer %></span>
+            <span class="small f-right">
+                <% if public_coupon.claimer.length > 0 %>
+                    <strong>Claimed by: </strong> <%= public_coupon.claimer %>
+                <% end %>
+            </span>
         </div>
         <div class="coupon-note">
             <p><%= public_coupon.note %></p>

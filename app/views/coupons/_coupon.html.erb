@@ -10,7 +10,11 @@
                 </div>
                 <div class="coupon-info">
                     <span class="small f-left"><strong>Expires: </strong> <%= coupon.code_expiry %></span>
-                    <span class="small f-right"><strong>Claimed by: </strong> <%= coupon.claimer %></span>
+                    <span class="small f-right">
+                        <% if coupon.claimer.length > 0 %>
+                            <strong>Claimed by: </strong> <%= coupon.claimer %>
+                        <% end %>
+                    </span>
                 </div>
                 <div class="coupon-note">
                     <p><%= coupon.note %></p>
