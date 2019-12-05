@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions
-  resources :public_coupons do
-    member do
-      post 'publish'
-    end
-  end
+  
   resources :passes do
     resources :coupons
+    resources :public_coupons do
+      member do
+        post 'publish'
+      end
+    end
   end
   
   

@@ -1,8 +1,17 @@
 <div class="grid-item">
     <div id="coupon_<%= public_coupon.id %>" class="coupon card pass">
+        <div class="coupon-site">
+            <h5><%= public_coupon.site %></h5>
+        </div>
         <div class="coupon-main">
-            <h2 class= "center"><%= public_coupon.code %></h2>
-            <p class="center small">Code</p>
+            <% if public_coupon.claimer == nil %>
+                <h2 class= "center"><%= public_coupon.code %></h2>
+                <p class="center small">Code</p>
+            <% else %>
+                
+                <%= link_to "Claim This Coupon!", root_path, class: "stretched-link claim-button" , method: :post %>
+                
+            <% end %>
         </div>
         <div class="coupon-info">
             <span class="small f-left"><strong>Expires: </strong> <%= public_coupon.expiry %></span>

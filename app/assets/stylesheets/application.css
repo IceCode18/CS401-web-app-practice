@@ -133,6 +133,10 @@ a:hover{
     padding: 20px;
     margin: 0;
 }
+.coupon-main {
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
 .coupon-info{
     background: rgba(240,240,240, 0.8);
     border-top: 1px solid #aaa;
@@ -145,11 +149,19 @@ a:hover{
 }
 .coupon h2{
     margin: 0;
+    color: #55F;
 }
 .pid{
     transform: rotate(0);
 }
-#makePublic{
+.coupon-site{
+  padding: 0px;
+  padding-top: 5px;
+  text-align: center;
+  color: #fff;
+  background: #56becc;
+}
+.makePublic{
     margin-top: 2px;
     margin-right: 10px;
     display: block;
@@ -160,15 +172,33 @@ a:hover{
     font-size: 8pt ;
     padding: 2px ;
     background: none ;
-    border: solid 1px #33bf1b;
-    color:  #33bf1b;
     border-radius: 5px;
     z-index: -999;
 }
-.pub:hover{
+.Publish{
+    border: solid 1px #33bf1b;
+    color:  #33bf1b;
+}
+.Publish:hover{
     background: #33bf1b;
     color:  #fff !important;
 }
+.Unpublish{
+    border: solid 1px #c91e1e;
+    color:  #c91e1e;
+}
+.Unpublish:hover{
+    background: #c91e1e;
+    color:  #fff !important;
+}
+.claim-button{
+    font-size: 24pt;
+}
+.claim-button:hover{
+    color: #3fb545;
+    font-weight: bolder;
+}
+
 
 /***Misc*****/
 .small{

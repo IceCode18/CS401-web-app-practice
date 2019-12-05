@@ -1,9 +1,9 @@
 
         <div class="grid-item">
             <div id="coupon_<%= coupon.id %>" class="coupon card pass">
-                <div id="makePublic">
-                        <%= link_to "Publish", publish_public_coupon_path(coupon), class: "pub" , method: :post %>
-                    </div>
+                <div class="makePublic">
+                    <%= link_to publishButtonName(coupon.publicized), publish_pass_public_coupon_path(@pass,coupon), class: "pub #{publishButtonName(coupon.publicized)}" , method: :post %>
+                </div>
                 <div class="coupon-main">
                     <h2 class= "center"><%= link_to_unless_current coupon.code, pass_coupon_path(@pass,coupon)  %></h2>
                     <p class="center small">Code</p>
