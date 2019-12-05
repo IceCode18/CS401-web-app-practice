@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_hash] = nil
       login(@user)
-      redirect_to root_path, notice: "Acoount Created."
+      redirect_to root_path, notice: "Account Created."
     else
       render :new
     end
