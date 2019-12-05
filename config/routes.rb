@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'public_coupons/index'
-  get 'public_coupons/show'
+  #get 'public_coupons/index'
+  #get 'public_coupons/show'
   #get 'sessions/new'
   #get 'users/index'
   # get 'coupons/index'
@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions
-  resources :public_coupons
+  resources :public_coupons do
+    member do
+      post 'publish'
+    end
+  end
   resources :passes do
     resources :coupons
   end

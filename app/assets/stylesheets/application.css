@@ -149,7 +149,26 @@ a:hover{
 .pid{
     transform: rotate(0);
 }
-
+#makePublic{
+    margin-top: 2px;
+    margin-right: 10px;
+    display: block;
+    text-align: right;
+    
+}
+.pub{
+    font-size: 8pt ;
+    padding: 2px ;
+    background: none ;
+    border: solid 1px #33bf1b;
+    color:  #33bf1b;
+    border-radius: 5px;
+    z-index: -999;
+}
+.pub:hover{
+    background: #33bf1b;
+    color:  #fff !important;
+}
 
 /***Misc*****/
 .small{

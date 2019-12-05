@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_233146) do
+ActiveRecord::Schema.define(version: 2019_12_05_024804) do
 
   create_table "coupons", force: :cascade do |t|
     t.string "code"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_04_233146) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "isChanged"
     t.string "changeType"
+    t.boolean "publicized"
   end
 
   create_table "passes", force: :cascade do |t|
