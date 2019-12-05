@@ -8,9 +8,7 @@
                 <h2 class= "center"><%= public_coupon.code %></h2>
                 <p class="center small">Code</p>
             <% else %>
-                
-                <%= link_to "Claim This Coupon!", root_path, class: "stretched-link claim-button" , method: :post %>
-                
+                <%= link_to "Claim This Coupon!", claim_public_coupon_path(public_coupon), class: "stretched-link claim-button" , method: :post %>
             <% end %>
         </div>
         <div class="coupon-info">

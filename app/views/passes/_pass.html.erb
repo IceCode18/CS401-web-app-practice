@@ -3,7 +3,7 @@
       <div class="pid">
         <h5 class="card-subtitle mb-2 text-muted">Website: <span class="link-title"><%= link_to_unless_current pass.from, pass, class: "stretched-link" %></span></h5>
       <hr>
-      <h6 class="card-title">Number of Coupons: <%= pass.code_id %></p></h6>
+      <h6 class="card-title">Number of Coupons: <%= pass.coupons.count(:id) %></p></h6>
       <!--<h6 class="card-subtitle mb-2 text-muted">Expires: <%= pass.expiry %> </h6>-->
       <hr>
       <p class="card-text"><%= pass.code %></p>

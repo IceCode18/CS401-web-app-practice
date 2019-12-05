@@ -16,13 +16,18 @@ Rails.application.routes.draw do
   
   resources :passes do
     resources :coupons
-    resources :public_coupons do
-      member do
-        post 'publish'
+      resources :public_coupons do
+        member do
+          post 'publish'
+        end
       end
-    end
   end
   
+  resources :public_coupons do
+    member do
+      post 'claim'
+    end
+  end
   
   root to: 'home#index'
   get "about" => 'home#about'

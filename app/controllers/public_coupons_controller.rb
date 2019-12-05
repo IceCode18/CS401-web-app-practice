@@ -1,5 +1,4 @@
 class PublicCouponsController < ApplicationController
-  before_action :load_public, except: [:index]
   
   def index
     @public_coupons = PublicCoupon.all
@@ -9,6 +8,8 @@ class PublicCouponsController < ApplicationController
   end
   
   def publish
+    @pass = current_user.passes.find params[:pass_id]
+    @coupon = @pass.coupons.find params[:id]
     cpub_id = "#{current_user.id},#{@pass.id},#{@coupon.id}"
     existing = PublicCoupon.where(pub_id: cpub_id).first
     if existing
@@ -32,11 +33,18 @@ class PublicCouponsController < ApplicationController
     redirect_to pass_coupons_path(@pass)
   end
   
-  private
-  
-  def load_public
-    @pass = current_user.passes.find params[:pass_id]
-    @coupon = @pass.coupons.find params[:id]
+  def claim
+    pubcoup = PublicCoupon.find params[:id]
+    id = pubcoup.pub_id.split(/,/)
+    user = User.where(id: id[0]).first
+    @pass = user.passes.find id[1]
+    @coupon = @pass.coupons.find id[2]
+    @coupon.claimer = current_user.name
+    @coupon.save
+    pubcoup.claimer = current_user.name
+    pubcoup.save
+    redirect_to claim_path
   end
+  
   
 end
